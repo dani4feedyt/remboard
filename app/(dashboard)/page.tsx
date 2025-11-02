@@ -1,13 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
+import { EmptyOrg } from "./_components/empty-org";
 
-export default function DashboardPage() {
+const DashboardPage = () => {
   return (
-    <div className="flex flex-col gap-y-4">
-      <div>
-        <p>"Thus authenticated shall user be(!)"</p>
-      </div>
+    <div className= "flex-1 h-[calc(100%-80px)] p-6">
+      <EmptyOrg />
     </div>
   );
-}
+};
+
+export default DashboardPage;

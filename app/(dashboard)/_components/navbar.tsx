@@ -13,7 +13,7 @@ export const Navbar = () => {
             <div className="hidden lg:flex lg:flex-1 ">
                 <SearchInput />
             </div>
-            There is also a navbar!
+            Authenticated shall you be(!)
             <div className="block lg:hidden flex-1">
                 <OrganizationSwitcher hidePersonal
                 appearance={{
