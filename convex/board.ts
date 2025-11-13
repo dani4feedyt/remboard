@@ -1,6 +1,7 @@
 import { v } from "convex/values"
 
 import { mutation } from "./_generated/server";
+import { arch } from "os";
 
 const images = [
     "/placeholders/1.svg",
@@ -37,6 +38,42 @@ export const create = mutation({
             imageUrl: randomImage,
         });
 
+        return board;
+    }
+});
+
+export const remove = mutation({
+    args: { id: v.id("boards") },
+    handler: async (ctx, args) => {
+        const identity = await ctx.auth.getUserIdentity();
+        if (!identity){
+            throw new Error("Unauthorised!");
+        }
+        await ctx.db.delete(args.id);
+    }
+})
+
+export const update = mutation({
+    args: { id: v.id("boards"), title: v.string() },
+    handler: async (ctx, args) => {
+        const identity = await ctx.auth.getUserIdentity();
+        if (!identity) {
+            throw new Error ("Unauthorised");
+        }
+
+        const title = args.title.trim();
+
+        if (!title) {
+            throw new Error ("Title is required");
+        }
+
+        if (title.length > 60) {
+            throw new Error ("Title can not be longer than 60 characters");
+        }
+
+        const board = await ctx.db.patch(args.id, {
+            title: args.title,
+        });
         return board;
     }
 })

@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner"
 import ConvexClientProvider from "@/providers/convex-client-provider"
 import ProtectedRoute from "@/components/protected-route" // We'll create this
 import { ClerkProvider } from "@clerk/nextjs"
+import { ModalProvider } from "@/providers/modal-provider"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({
         <ClerkProvider>
           <ConvexClientProvider>
             <Toaster />
+            <ModalProvider />
             <ProtectedRoute>{children}</ProtectedRoute>
           </ConvexClientProvider>
         </ClerkProvider>
