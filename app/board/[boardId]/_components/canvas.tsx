@@ -15,7 +15,6 @@ export const Canvas = ({
         <main
             className="h-full w-full relative bg-neutral-100 touch-none"
         >
-            John Canvas
             <Info />
             <Participants />
             <Toolbar />
