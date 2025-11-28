@@ -1,17 +1,47 @@
+// import {Canvas} from "./_components/canvas"
+// import {Room } from "@/components/room"
+
+// interface BoardIdPageProps {
+//     params:{
+//         boardId:string
+//     }
+// }
+
+// const BoardIdPage =({
+//     params,
+// }:BoardIdPageProps)=>{
+//     return (
+//         <Room roomId={params.boardId}>
+//             <Canvas boardId={params.boardId}/>
+//         </Room>
+//     )
+// }
+
+// export default BoardIdPage
+
+
+// import { Room } from "@/components/room";
+// import { CollaborativeApp } from "@/app/board/[boardId]/_components/CollaborativeApp";
+
+// export default function Page() {
+//   return (
+//     <Room>
+//       <CollaborativeApp />
+//     </Room>
+//   );
+// }
+
+import { Room } from "@/components/room";
 import { Canvas } from "./_components/canvas";
 
 interface BoardIdPageProps {
-    params: {
-        boardId: string;
-    };
-};
+  params: { boardId: string };
+}
 
-const BoardIdPage = ({
-    params,
-}: BoardIdPageProps) => {
-    return (
-        <Canvas boardId={params.boardId}/>
-    );
-};
-
-export default BoardIdPage;
+export default function BoardIdPage({ params }: BoardIdPageProps) {
+  return (
+    <Room roomId={params.boardId}>
+      <Canvas boardId={params.boardId} />
+    </Room>
+  );
+}

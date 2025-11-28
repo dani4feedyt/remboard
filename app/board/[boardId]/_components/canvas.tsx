@@ -1,23 +1,20 @@
 "use client";
 
-import { Info } from "./info";
-import { Participants } from "./participants";
-import { Toolbar } from "./toolbar";
+import { useOthers } from "@liveblocks/react/suspense";
 
 interface CanvasProps {
-    boardId: string;
-};
+  boardId: string;
+}
 
-export const Canvas = ({
-    boardId,
-}: CanvasProps) => {
-    return(
-        <main
-            className="h-full w-full relative bg-neutral-100 touch-none"
-        >
-            <Info />
-            <Participants />
-            <Toolbar />
-        </main>
-    )
+export function Canvas({ boardId }: CanvasProps) {
+  const others = useOthers();
+  const userCount = others.length;
+
+  return (
+    <div>
+      <h2>Board: {boardId}</h2>
+      <p>There are {userCount} other user(s) online</p>
+      {/* Здесь можно добавить whiteboard / рисование */}
+    </div>
+  );
 }
