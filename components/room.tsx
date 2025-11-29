@@ -7,10 +7,11 @@ import { Canvas } from "@/app/board/[boardId]/_components/canvas"; // your Canva
 
 interface RoomProps {   
   children?: ReactNode;
-  roomId: string;   
+  roomId: string;
+  fallback:   NonNullable<ReactNode> | null;
 }   
 
-export const Room = ({ children, roomId }: RoomProps) => {
+export const Room = ({ children, roomId,fallback }: RoomProps) => {
   return (
     <RoomProvider
       id={roomId}
@@ -26,7 +27,7 @@ export const Room = ({ children, roomId }: RoomProps) => {
       }}
     >
       {/* Ensure storage is loaded before rendering children */}
-      <ClientSideSuspense fallback={<div>Loading room...</div>}>
+      <ClientSideSuspense fallback={fallback}>
         {children || <Canvas boardId={roomId} />}
       </ClientSideSuspense>
     </RoomProvider>
