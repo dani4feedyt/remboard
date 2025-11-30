@@ -1,4 +1,5 @@
 import { LiveList, LiveMap, LiveObject } from "@liveblocks/client";
+import { Layer,Color } from "./types/canvas";
 
 declare global {
   interface Liveblocks {
