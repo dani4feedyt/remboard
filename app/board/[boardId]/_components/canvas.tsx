@@ -26,6 +26,8 @@ import { LayerPreview } from "./layer-preview";
 import { SelectionBox } from "./selection-box";
 import { SelectionTools } from "./selection-tools";
 import { Path } from "./path";
+import { useDisableScrollBounce } from "@/hooks/use-disable-scroll-bounce";
+import { useDeleteLayers } from "@/hooks/use-delete-layers";
 
 
 
@@ -63,6 +65,10 @@ export const Canvas = ({ boardId }: CanvasProps) => {
     b:0,
   })
 
+  
+
+
+  useDisableScrollBounce()
   const history = useHistory()
   const canUndo = useCanUndo()
   const canRedo = useCanRedo()
@@ -465,6 +471,36 @@ const insertLayer = useMutation ((
 
       return layerIdsToColorSelection
   }, [selections])
+
+
+  const deleteLayers = useDeleteLayers()
+
+
+   useEffect(() => {
+  function onKeyDown(e: KeyboardEvent) {
+    // Undo: Ctrl+Z
+    if ((e.ctrlKey || e.metaKey) && e.key === "z" && !e.shiftKey) {
+      history.undo();
+      return;
+    }
+
+    // Redo: Ctrl+Shift+Z
+    if ((e.ctrlKey || e.metaKey) && e.key === "z" && e.shiftKey) {
+      history.redo();
+      return;
+    }
+
+    // Redo: Ctrl+Y
+    if ((e.ctrlKey || e.metaKey) && e.key === "y") {
+      history.redo();
+      return;
+    }
+  }
+
+  document.addEventListener("keydown", onKeyDown);
+  return () => document.removeEventListener("keydown", onKeyDown);
+}, [history]);
+
 
 
   return (
