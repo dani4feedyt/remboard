@@ -1,7 +1,6 @@
 "use client";
 
 import { DropdownMenuContentProps } from "@radix-ui/react-dropdown-menu";
-
 import {
     DropdownMenu,
     DropdownMenuTrigger,
@@ -14,6 +13,7 @@ import { useApiMutation } from "@/hooks/use-api-mutation";
 import { toast } from "sonner";
 import { api } from "@/convex/_generated/api";
 import { useRenameModal } from "@/store/use-rename-modal";
+import { useRouter } from "next/navigation";
 
 interface ActionsProps {
     children: React.ReactNode;
@@ -30,6 +30,8 @@ export const Actions = ({
     id,
     title,
 }: ActionsProps) => {
+
+    const router = useRouter();
     const { onOpen } = useRenameModal();
     const { mutate, pending } = useApiMutation(api.board.remove);
 
@@ -42,11 +44,13 @@ export const Actions = ({
     };
 
     const onDelete = () => {
-        mutate ({ id })
-            .then(() => toast.success("Board deleted"))
+        mutate({ id })
+            .then(() => {
+                toast.success("Board deleted");
+                router.push("/"); 
+            })
             .catch(() => toast.error("Failed to delete board"));
-        }
-
+    };
 
     return (
         <DropdownMenu>
@@ -66,13 +70,15 @@ export const Actions = ({
                     <Link2 className="h-4 w-4 mr-2" />
                     Copy link
                 </DropdownMenuItem>
+
                 <DropdownMenuItem
-                    onClick={() => onOpen(id, title) }
+                    onClick={() => onOpen(id, title)}
                     className="p-3 cursor-pointer"
                 >
                     <Pencil className="h-4 w-4 mr-2" />
                     Rename
                 </DropdownMenuItem>
+
                 <DropdownMenuItem
                     onClick={onDelete}
                     className="p-3 cursor-pointer"
