@@ -13,6 +13,9 @@ services:
       - "3030:3000"
     networks:
       - proxy
+    user: "1001:1001"
+    working_dir: /app
+    command: ["npm", "start"]
 
 networks:
   proxy:
