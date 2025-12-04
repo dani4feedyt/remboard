@@ -10,8 +10,7 @@ RUN npm run build
 FROM node:20-alpine AS runner
 WORKDIR /app
 
-RUN addgroup -g 1000 nextgroup \
-    && adduser -D -u 1000 -G nextgroup nextjs
+RUN addgroup nextgroup && adduser -D -G nextgroup nextjs
 
 USER nextjs
 
