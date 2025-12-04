@@ -1,0 +1,162 @@
+Folder PATH listing
+Volume serial number is FE42-35F8
+C:.
+¦   .env.local
+¦   .gitignore
+¦   components.json
+¦   eslint.config.mjs
+¦   LICENSE
+¦   liveblocks.config.ts
+¦   middleware.ts
+¦   next-env.d.ts
+¦   next.config.ts
+¦   package-lock.json
+¦   package.json
+¦   postcss.config.mjs
+¦   README.md
+¦   tree.txt
+¦   tsconfig.json
+¦   
+¦           
++---app
+¦   ¦   favicon.ico
+¦   ¦   globals.css
+¦   ¦   layout.tsx
+¦   ¦   
+¦   +---(dashboard)
+¦   ¦   ¦   layout.tsx
+¦   ¦   ¦   page.tsx
+¦   ¦   ¦   
+¦   ¦   +---_components
+¦   ¦       ¦   board-list.tsx
+¦   ¦       ¦   empty-boards.tsx
+¦   ¦       ¦   empty-org.tsx
+¦   ¦       ¦   hint.tsx
+¦   ¦       ¦   invite-button.tsx
+¦   ¦       ¦   navbar.tsx
+¦   ¦       ¦   new-board-button.tsx
+¦   ¦       ¦   org-sidebar.tsx
+¦   ¦       ¦   search-input.tsx
+¦   ¦       ¦   
+¦   ¦       +---board-card
+¦   ¦       ¦       footer.tsx
+¦   ¦       ¦       index.tsx
+¦   ¦       ¦       overlay.tsx
+¦   ¦       ¦       
+¦   ¦       +---sidebar
+¦   ¦               index.tsx
+¦   ¦               item.tsx
+¦   ¦               list.tsx
+¦   ¦               new-button.tsx
+¦   ¦               
+¦   +---api
+¦   ¦   +---liveblocks-auth
+¦   ¦           route.ts
+¦   ¦           
+¦   +---board
+¦       +---[boardId]
+¦           ¦   page.tsx
+¦           ¦   
+¦           +---_components
+¦                   canvas.tsx
+¦                   color-picker.tsx
+¦                   cursor.tsx
+¦                   cursors-presence.tsx
+¦                   ellipse.tsx
+¦                   info.tsx
+¦                   layer-preview.tsx
+¦                   loading.tsx
+¦                   note.tsx
+¦                   participants.tsx
+¦                   path.tsx
+¦                   rectangle.tsx
+¦                   selection-box.tsx
+¦                   selection-tools.tsx
+¦                   text.tsx
+¦                   tool-button.tsx
+¦                   toolbar.tsx
+¦                   user-avatar.tsx
+¦                   
++---components
+¦   ¦   actions.tsx
+¦   ¦   protected-route.tsx
+¦   ¦   room.tsx
+¦   ¦   
+¦   +---auth
+¦   ¦       loading.tsx
+¦   ¦       
+¦   +---modals
+¦   ¦       rename-modal.tsx
+¦   ¦       
+¦   +---ui
+¦           alert-dialog.tsx
+¦           avatar.tsx
+¦           button.tsx
+¦           dialog.tsx
+¦           dropdown-menu.tsx
+¦           input.tsx
+¦           skeleton.tsx
+¦           sonner.tsx
+¦           tooltip.tsx
+¦           
++---convex
+¦   ¦   auth.config.ts
+¦   ¦   board.ts
+¦   ¦   boards.ts
+¦   ¦   README.md
+¦   ¦   schema.ts
+¦   ¦   tsconfig.json
+¦   ¦   
+¦   +---_generated
+¦           api.d.ts
+¦           api.js
+¦           dataModel.d.ts
+¦           server.d.ts
+¦           server.js
+¦           
++---hooks
+¦       use-api-mutation.ts
+¦       use-delete-layers.ts
+¦       use-disable-scroll-bounce.ts
+¦       use-selection-bounds.ts
+¦       
++---lib
+¦       liveblocksClient.ts
+¦       utils.ts
+¦       
+¦               
++---providers
+¦       client-providers.tsx
+¦       convex-client-provider.tsx
+¦       modal-provider.tsx
+¦       
++---public
+¦   ¦   elements.svg
+¦   ¦   file.svg
+¦   ¦   globe.svg
+¦   ¦   logo.svg
+¦   ¦   next.svg
+¦   ¦   vercel.svg
+¦   ¦   window.svg
+¦   ¦   
+¦   +---placeholders
+¦           1.svg
+¦           10.svg
+¦           2.svg
+¦           3.svg
+¦           4.svg
+¦           5.svg
+¦           6.svg
+¦           7.svg
+¦           8.svg
+¦           9.svg
+¦           
++---src
+¦       types.ts
+¦       
++---store
+¦       use-rename-modal.ts
+¦       
++---types
+        canvas.ts
+        
