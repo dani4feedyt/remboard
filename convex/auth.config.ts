@@ -3,7 +3,7 @@
   export default {
     providers: [
       {
-        domain: "https://flowing-glider-78.clerk.accounts.dev",
+        domain: "https://clerk.sweng.qzz.io",
         applicationID: "convex",
       },
     ],
